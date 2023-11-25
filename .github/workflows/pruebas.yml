@@ -5,9 +5,16 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Change permissions for Jest
+        run: chmod +x node_modules/.bin/jest
+
+      - name: Run tests with Jest
+        run: node_modules/.bin/jest
 
       - name: Install dependencies
         run: npm install
