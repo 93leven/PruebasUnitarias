@@ -1,0 +1,16 @@
+name: Pruebas unitarias
+
+on: [push, pull_request] # Ejecutar las pruebas en cada push y pull request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Instalar dependencias
+      run: npm install
+
+    - name: Ejecutar pruebas
+      run: npm test
